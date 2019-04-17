@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>MyApp- Home</title>
+{% endblock title %}
+
+{% block content %}
+
+<h1>All students- <a href="add-student/">New Student</a></h1>
+
+<ul>
+    {% for st in all_student %}
+    <li>{{st.name}}- {{st.email}}- {{st.joined}}</li>
+    {% endfor %}
+</ul>
+
+<h1>Name: {{name}}</h1>
+<a href="{% url 'app_home' %}?logout=logout">logout</a>
+{% endblock content %}
+
+<!--{{name}}-->

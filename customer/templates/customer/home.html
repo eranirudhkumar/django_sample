@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>Customer Home</h1>
+<label for="name">Name: </label>
+<input id="name" type="text" placeholder="Enter name">
+State:
+<select onchange="abc(this.value)">
+    <option value="">--select state--</option>
+    {% for state in states %}
+    <option value="{{state}}">{{state}}</option>
+    {% endfor %}
+</select>
+
+District:
+<select id="add_distrcts">
+    <option value="">--select district--</option>
+</select>
+
+<script>
+    function abc(state_name) {
+        // alert(state_name + " selected.");
+        $.ajax({
+            //url: '127.0.0.1:8000/hello',
+            url: "{% url 'customer_state' %}",
+            type: 'get', // This is the default though, you don't actually need to always mention it
+            data: {'state_name': state_name},
+            success: function (data) {
+                // alert(data);
+                document.getElementById('add_distrcts').innerHTML='';
+                document.getElementById('add_distrcts').innerHTML=data;
+            },
+            failure: function (data) {
+                alert('Got an error dude');
+            }
+        });
+    }
+</script>
+{% endblock content %}

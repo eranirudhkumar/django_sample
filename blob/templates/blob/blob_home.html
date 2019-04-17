@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Blob Home</title>
+</head>
+<body>
+
+<h1>All Posts-</h1>
+{% for post in posts %}
+<img src="{% static 'pp.jpg' %}" alt="post_image" height="400" width="400">
+<a href="{{post.id}}" style="text-decoration: none !important;"><h1>{{post.title}}</h1></a>
+<span>{{post.author}}</span>-
+<span>{{post.created}}</span>
+<p>{{post.description}}</p>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Otp validation</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="otp">
+    <input type="submit" value="Validate">
+</form>
+</body>
+</html>

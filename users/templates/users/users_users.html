@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+<h1>All Users-</h1>
+<!--{{users}}-->
+
+<table>
+    <tr>
+        <th>Sr.No.</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+    </tr>
+    {% for u in users %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{u.first_name}} {{u.last_name}}</td>
+        <td>{{u.username}}</td>
+        <td>{{u.email}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
